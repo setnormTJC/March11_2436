@@ -29,7 +29,7 @@ int main()
 	secondNode->dataOfInterest = "Bob Boblaw";
 
 	//NOW we LINK the two: 
-	head->addressOfNextNode = std::move(head); 
+	head->addressOfNextNode = std::move(secondNode); 
 
 	//make the secondNode the LAST node in the list by doing: 
 	secondNode->addressOfNextNode = nullptr;
