@@ -11,6 +11,14 @@ class Car
 
 };
 
+class RawPointerNode
+{
+public: 
+	std::string data; 
+	RawPointerNode* pNext = nullptr; 
+};
+
+
 class Node
 {
 public: 
@@ -24,5 +32,13 @@ public:
 
 class LinkedList
 {
+private: 
+	RawPointerNode* pHead = nullptr; //similar to setting topIndex = -1 (for a stack) 
+
+public: 
+	LinkedList() = default; 
+	LinkedList(const std::string& valueInHeadOfList); 
+
+	void insertAtFront(const std::string& valueToInsertAtFront);
 };
 
