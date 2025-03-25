@@ -40,5 +40,9 @@ public:
 	LinkedList(const std::string& valueInHeadOfList); 
 
 	void insertAtFront(const std::string& valueToInsertAtFront);
+
+	void printList(); 
+
+	void clear(); 
 };
 
