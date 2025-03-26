@@ -4,13 +4,6 @@
 #include<memory>
 #include <string>
 
-class Car
-{
-	std::string make; //as in "Ford", "Honda", "Toyota" 
-	int numberOfMilesOnOdometer; //ex: hopefully not 300'000 
-
-};
-
 class RawPointerNode
 {
 public: 
@@ -18,31 +11,22 @@ public:
 	RawPointerNode* pNext = nullptr; 
 };
 
-
-class Node
-{
-public: 
-	std::string dataOfInterest; 
-	//Node* addressOfNextNodeInList; //what is this thing called Node* ('tis a pointer (a memory address))
-
-	std::unique_ptr<Node> addressOfNextNode; //this means list is initially EMPTY 
-
-};
-
-
-class LinkedList
+class SinglyLinkedList
 {
 private: 
 	RawPointerNode* pHead = nullptr; //similar to setting topIndex = -1 (for a stack) 
 
 public: 
-	LinkedList() = default; 
-	LinkedList(const std::string& valueInHeadOfList); 
+	SinglyLinkedList() = default; 
+	SinglyLinkedList(const std::string& valueInitiallyAtHeadOfList); 
 
 	void insertAtFront(const std::string& valueToInsertAtFront);
 
 	void printList(); 
 
 	void clear(); 
+
+	/*A WEAKNESS (inconvenience) of using RawPointerNode - needing to call delete in destructor*/
+	~SinglyLinkedList(); 
 };
 

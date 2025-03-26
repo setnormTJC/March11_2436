@@ -1,30 +1,30 @@
 #include "LinkedList.h"
 #include <iostream>
 
-LinkedList::LinkedList(const std::string& valueInHeadOfList)
+SinglyLinkedList::SinglyLinkedList(const std::string& valueInitiallyAtHeadOfList)
 {
-	LinkedList::pHead = new RawPointerNode; 
+	SinglyLinkedList::pHead = new RawPointerNode; 
 
-	LinkedList::pHead->data = valueInHeadOfList;
+	SinglyLinkedList::pHead->data = valueInitiallyAtHeadOfList;
 
 }
 
-void LinkedList::insertAtFront(const std::string& valueToInsertAtFront)
+void SinglyLinkedList::insertAtFront(const std::string& valueToInsertAtFront)
 {
-	RawPointerNode* newNode = new RawPointerNode; 
-	newNode->data = valueToInsertAtFront; 
+	RawPointerNode* pNewNode = new RawPointerNode; 
+	pNewNode->data = valueToInsertAtFront; 
 
-	newNode->pNext = pHead; 
-	pHead = newNode; 
+	pNewNode->pNext = pHead; 
+	pHead = pNewNode; 
 
 }
 
-void LinkedList::printList()
+void SinglyLinkedList::printList()
 {
 	RawPointerNode* pCurrent = pHead; 
 
 	//int i = 0; 
-	//i = i + 1; 
+	//i = i + 1; //this is "similar" to pCurrent = pCurrent->pNext below
 
 	//for (int i = 0; i < arrayName.size(); ++i) //this is ARRAY iteration
 	while (pCurrent != nullptr) //this is "node-based" iteration 
@@ -35,10 +35,53 @@ void LinkedList::printList()
 		pCurrent = pCurrent->pNext; 
 	}
 
-
+	/*A WRONG way to do it!*/
+	//while (pHead != nullptr) 
+	// {
+	//	std::cout << pHead->data << "\n";
+	//	pHead = pHead->pNext; // Uh-oh — you just lost the head of the list!
+	//}
 }
 
-void LinkedList::clear()
+void SinglyLinkedList::clear()
 {
-	pHead = nullptr; 
+	/*similar to printList*/
+	RawPointerNode* pCurrent = pHead;
+
+	/*A WRONG way: */
+	//while (pCurrent != nullptr) 
+	//{
+	//	//DE-allocate memory address of current node : 
+	//	pCurrent = pCurrent->pNext;
+
+	//	delete pCurrent; //NO! ->this will only delete one node
+	//}
+
+	//a fairly good way: 
+	//while (pCurrent != nullptr)
+	//{
+	//	RawPointerNode* temp = pCurrent; 
+	//	//step "forward"
+	//	pCurrent = pCurrent->pNext; 
+	//	//delete the previous
+	//	delete temp;
+	//}
+
+	//the best? way? 
+	while (pHead != nullptr)
+	{
+		RawPointerNode* temp = pHead; 
+		pHead = pHead->pNext; 
+
+		delete temp; 
+	}
 }
+
+SinglyLinkedList::~SinglyLinkedList()
+{
+	clear(); 
+}
+
+
+
+

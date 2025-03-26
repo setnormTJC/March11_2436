@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="BeginningLinkedLists.cpp" />
     <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="SmartPointerSinglyLinkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="SmartPointerSinglyLinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
