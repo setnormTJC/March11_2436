@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BeginningLinkedLists.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="SmartPointerSinglyLinkedList.cpp" />
   </ItemGroup>

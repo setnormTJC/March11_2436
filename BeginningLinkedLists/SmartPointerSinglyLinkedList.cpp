@@ -14,7 +14,7 @@ void SmartPointerSinglyLinkedList::insertAtFront(const std::string& valueToInser
 
 	newNode->dataOfInterest = valueToInsertAtFront;
 
-	newNode->addressOfNextNode = std::move(pHead);
+	newNode->addressOfNextNode = std::move(pHead); //the MOVE business is a bit of an unfortunate complication 
 
 	pHead = std::move(newNode);
 }
@@ -30,10 +30,17 @@ void SmartPointerSinglyLinkedList::printList()
 	//}
 
 	//WRONG up above
+	SmartPointerNode* pCurrent = pHead.get(); //NOTE! pCurrent is a "RAW" pointer!
 
+	while (pCurrent != nullptr)
+	{
+		std::cout << pCurrent->dataOfInterest << "\n";
+		pCurrent = pCurrent->addressOfNextNode.get();
+	}
 	
 }
 
 void SmartPointerSinglyLinkedList::clear()
 {
+
 }

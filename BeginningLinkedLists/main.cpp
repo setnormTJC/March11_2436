@@ -56,7 +56,34 @@ void demoClear_andDestructor()
 
 int main()
 {
-	SmartPointerSinglyLinkedList spsll; 
+	SinglyLinkedList linkedList("Alice, our dear friend");
+
+	//linkedList.insertAtFront("Bob Boblaw"); //Arrested Development reference
+	linkedList.insertAtFront("Carol");
+	linkedList.insertAtFront("Darth");
+	
+	//Darth, Carol, Alice
+
+	//how to insert BOB after Carol? 
+	//first, FIND/get the memory address of Carol: 
+	auto addressOfCarol = linkedList.find("Carol");
+
+	if (addressOfCarol != nullptr) //safety check to prevent going out of linked list bounds 
+	{
+		linkedList.insertAfter(addressOfCarol, "Bob");
+	}
+
+	linkedList.printList(); 
+	
+	/*gain some "inspiration" (for additional functions) for singly-linked list from std library C++*/
+	//std::forward_list<int> fl; 
+	//fl.push_front(1); 
+
+	//std::find(fl.begin(), fl.end(), 1)
+	//fl.push_front(1); 
+	//std::cout << *fl.begin() << "\n"; //unary (not urinary) 
+
+	//std::cout << fl.begin()._Ptr << "\n";
 
 	
 }

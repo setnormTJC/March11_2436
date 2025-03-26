@@ -26,6 +26,11 @@ public:
 
 	void clear(); 
 
+
+	RawPointerNode* find(const std::string& valueToFind); 
+
+	void insertAfter(RawPointerNode* pPreviousNode, const std::string& valueToInsertAfterGivenNode); 
+
 	/*A WEAKNESS (inconvenience) of using RawPointerNode - needing to call delete in destructor*/
 	~SinglyLinkedList(); 
 };

@@ -77,6 +77,29 @@ void SinglyLinkedList::clear()
 	}
 }
 
+RawPointerNode* SinglyLinkedList::find(const std::string& valueToFind)
+{
+
+	RawPointerNode* pCurrent = pHead;
+
+	while (pCurrent->data != valueToFind) 
+	{
+		pCurrent = pCurrent->pNext;
+	}
+
+	return pCurrent; //this is similar to returning -1 from binary search or sequential search 
+}
+
+void SinglyLinkedList::insertAfter(RawPointerNode* pPreviousNode, const std::string& valueToInsertAfterGivenNode)
+{
+	RawPointerNode* pNewNode = new RawPointerNode; 
+	pNewNode->data = valueToInsertAfterGivenNode; 
+
+	pNewNode->pNext = pPreviousNode->pNext; 
+	pPreviousNode->pNext = pNewNode; 
+}
+
+
 SinglyLinkedList::~SinglyLinkedList()
 {
 	clear(); 
